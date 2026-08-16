@@ -259,7 +259,7 @@
         '</section>';
     }
 
-    var exercises = s.exercises.map(function (ex, i) {
+    var exercises = '<div class="ex-grid">' + s.exercises.map(function (ex, i) {
       var base = s.id + '-' + i;
       var href = F.formLinks[ex.name] ? 'movements.html#' + F.formLinks[ex.name] : '';
       var metrics = ex.ladder
@@ -304,7 +304,7 @@
           '<div class="ex-form">' + esc(ex.form) + '</div>' +
         '</section>'
       );
-    }).join('');
+    }).join('') + '</div>';
 
     var finKey = s.id + '-finisher';
     var finDone = !!get(finKey);

@@ -64,7 +64,7 @@
             '<select class="day-select" id="day">' + options + '</select>' +
           '</label>' +
         '</header>' +
-        '<section class="stack">' + items + '</section>' +
+        '<section class="offer">' + items + '</section>' +
         (note
           ? '<section class="note"><div class="kicker-sm">Before you do both</div><p>' + F.esc(note) + '</p></section>'
           : '') +
@@ -78,11 +78,11 @@
               '</div>' +
               '<div class="meta" style="font-size:13px;font-weight:700;color:var(--color-accent-700)">54 movements</div>' +
             '</a>' +
-            '<div class="stack-tight">' +
+            '<div class="docs-grid">' +
               '<div class="kicker-sm" style="color:var(--color-neutral-700)">Form guides</div>' +
               guides +
             '</div>' +
-            '<div class="stack-tight">' +
+            '<div class="docs-grid">' +
               '<div class="kicker-sm" style="color:var(--color-neutral-700)">Printable sheets</div>' +
               sheets +
             '</div>' +

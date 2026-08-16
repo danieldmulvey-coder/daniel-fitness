@@ -743,6 +743,68 @@ button { cursor: pointer; }
   align-items: start;
 }
 
+.offer { display: grid; gap: 12px; }
+.docs-grid {
+  display: grid;
+  gap: 9px;
+}
+.docs-grid .kicker-sm { grid-column: 1 / -1; }
+.moves-grid { display: flex; flex-direction: column; gap: 12px; }
+.ex-grid { display: flex; flex-direction: column; gap: 10px; }
+
+@media (min-width: 800px) {
+  .wrap {
+    max-width: 1080px;
+    padding: 40px 36px 72px;
+    gap: 28px;
+  }
+  .wrap-tracker {
+    max-width: 1120px;
+    padding: 32px 36px 120px;
+  }
+  .wrap-narrow {
+    max-width: 1080px;
+    padding: 32px 36px 72px;
+  }
+  .display-xl { font-size: 56px; }
+  .display-lg { font-size: 38px; }
+  .offer {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .offer .card-link.main { grid-column: 1 / -1; }
+  .docs-grid { grid-template-columns: 1fr 1fr; }
+  .moves-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .ex-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .phone-sheet { max-width: 1080px; }
+  .paper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    justify-items: center;
+    max-width: 1720px;
+    margin: 0 auto;
+    gap: 28px;
+    padding: 32px 28px 64px;
+  }
+  .timer-inner { max-width: 1120px; }
+}
+
+@media (min-width: 1280px) {
+  .wrap,
+  .wrap-tracker,
+  .wrap-narrow { max-width: 1240px; }
+}
+
 .hidden { display: none !important; }
 
 @media (max-width: 720px) {

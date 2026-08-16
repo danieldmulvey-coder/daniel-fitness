@@ -39,7 +39,7 @@
         return (
           '<section class="stack">' +
             '<div class="kicker-sm" style="color:var(--color-neutral-700);padding-top:4px">' + F.esc(gp.label) + '</div>' +
-            gp.moves.map(moveHtml).join('') +
+            '<div class="moves-grid">' + gp.moves.map(moveHtml).join('') + '</div>' +
           '</section>'
         );
       }).join('') +
