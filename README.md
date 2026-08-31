@@ -2,7 +2,7 @@
 
 Phone-first workout hub, tracker, movement guide, form guides, and printable sheets. Cal (Fitness Architect) owns the programming; Brad is folded.
 
-Same nine pages as [the live GitHub Pages site](https://danieldmulvey-coder.github.io/daniel-fitness/index.html), rebuilt so they can be edited here. No bundler. Data lives in `data/`. Shared CSS in `css/`. Tracker state is still `localStorage` on this device, with the original `brad-*` keys so existing logs stay put.
+Same nine pages as [the live GitHub Pages site](https://danieldmulvey-coder.github.io/daniel-fitness/index.html), rebuilt so they can be edited here. No bundler. Data lives in `data/`. Shared CSS in `css/`. Tracker state is `localStorage` on this device under `cal-*` keys; leftover `brad-*` values are copied once on first read so existing logs stay put.
 
 ## Open locally
 

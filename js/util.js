@@ -10,24 +10,48 @@ FITNESS.slug = function (name) {
   return String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 };
 
-// Frozen write keys — existing devices keep history under these names.
-// Cal aliases are read if present; writes stay on the brad-* keys.
-FITNESS.STORE_ALIASES = {
-  'brad-tracker-v1': ['cal-tracker-v1'],
-  'cal-tracker-v1': ['brad-tracker-v1'],
-  'brad-ladder-session': ['cal-ladder-session'],
-  'cal-ladder-session': ['brad-ladder-session'],
-  'brad-tracker-last': ['cal-tracker-last'],
-  'cal-tracker-last': ['brad-tracker-last'],
-  'brad-tracker-sound': ['cal-tracker-sound'],
-  'cal-tracker-sound': ['brad-tracker-sound']
+// Canonical write keys. Existing devices may still have brad-* leftovers;
+// first read copies those onto cal-* and leaves the old values in place.
+FITNESS.KEYS = {
+  data: 'cal-tracker-v1',
+  ladder: 'cal-ladder-session',
+  last: 'cal-tracker-last',
+  sound: 'cal-tracker-sound'
 };
 
-function storeCandidates(key) {
-  var list = [key];
-  var extra = FITNESS.STORE_ALIASES[key] || [];
-  for (var i = 0; i < extra.length; i++) list.push(extra[i]);
-  return list;
+FITNESS.STORE_LEGACY = {
+  'cal-tracker-v1': 'brad-tracker-v1',
+  'cal-ladder-session': 'brad-ladder-session',
+  'cal-tracker-last': 'brad-tracker-last',
+  'cal-tracker-sound': 'brad-tracker-sound'
+};
+
+function canonicalKey(key) {
+  if (FITNESS.STORE_LEGACY[key]) return key;
+  var map = FITNESS.STORE_LEGACY;
+  for (var cal in map) {
+    if (map[cal] === key) return cal;
+  }
+  return key;
+}
+
+function isEmptyRaw(raw) {
+  return raw == null || raw === '';
+}
+
+function migrateIfNeeded(canonical) {
+  try {
+    var current = window.localStorage.getItem(canonical);
+    if (!isEmptyRaw(current)) return current;
+    var legacy = FITNESS.STORE_LEGACY[canonical];
+    if (!legacy) return current;
+    var old = window.localStorage.getItem(legacy);
+    if (isEmptyRaw(old)) return current;
+    window.localStorage.setItem(canonical, old);
+    return old;
+  } catch (e) {
+    return null;
+  }
 }
 
 FITNESS.store = {
@@ -42,20 +66,16 @@ FITNESS.store = {
   },
   getRaw: function (key) {
     try {
-      var keys = storeCandidates(key);
-      for (var i = 0; i < keys.length; i++) {
-        var raw = window.localStorage.getItem(keys[i]);
-        if (raw != null) return raw;
-      }
-      return null;
+      return migrateIfNeeded(canonicalKey(key));
     } catch (e) {
       return null;
     }
   },
   set: function (key, value) {
     try {
-      if (typeof value === 'string') window.localStorage.setItem(key, value);
-      else window.localStorage.setItem(key, JSON.stringify(value));
+      var dest = canonicalKey(key);
+      if (typeof value === 'string') window.localStorage.setItem(dest, value);
+      else window.localStorage.setItem(dest, JSON.stringify(value));
     } catch (e) {}
   }
 };

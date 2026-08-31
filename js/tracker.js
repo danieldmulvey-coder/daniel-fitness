@@ -84,7 +84,7 @@
   function setLadderSession(n, clearRungs) {
     var next = Math.max(1, n);
     state.ladderSession = next;
-    try { localStorage.setItem(KEYS.ladder, String(next)); } catch (e) {}
+    F.store.set(KEYS.ladder, String(next));
     if (clearRungs) clearSession('mw');
   }
 
@@ -404,7 +404,7 @@
     if (act === 'reset') { clearSession(s.id); render(); return; }
     if (act === 'sound') {
       state.sound = !state.sound;
-      try { localStorage.setItem(KEYS.sound, state.sound ? 'on' : 'off'); } catch (e2) {}
+      F.store.set(KEYS.sound, state.sound ? 'on' : 'off');
       if (state.sound) F.chime();
       render();
       return;

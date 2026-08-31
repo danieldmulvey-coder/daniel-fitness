@@ -15,9 +15,10 @@ when Daniel isn't in the room — but when Daniel is in the room, he decides.
 - One movement dataset feeds all pages; design does layout only. (Sheets still duplicate
   programming today — edit `data/sessions.js` and `data/workouts.js` together.)
 - The kettlebell/gripper ladder is counted by session, never by date or calendar week.
-- Tracker storage keys stay `brad-tracker-v1`, `brad-tracker-last`, `brad-ladder-session`,
-  `brad-tracker-sound` so an existing device keeps its history. Read Cal aliases
-  (`cal-tracker-v1`, etc.) if present; do not wipe or rename the brad-* keys.
+- Tracker write keys are `cal-tracker-v1`, `cal-tracker-last`, `cal-ladder-session`,
+  `cal-tracker-sound`. On read, if a cal-* key is missing or empty and the matching
+  `brad-*` leftover has data, copy it onto cal-* once and leave brad-* in place.
+  Do not wipe history.
 - No login, no network calls, no analytics. Must work from `file://` and offline.
 - Do not add a video link unless it has been fetched and confirmed. 38 movements have no
   Read link on purpose.

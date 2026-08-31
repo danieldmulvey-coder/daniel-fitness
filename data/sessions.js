@@ -137,12 +137,12 @@ const OPT = {
   })
 };
 
-// Frozen names — existing devices already have history under these keys.
-// util.js also reads cal-* aliases if present. Do not rename or wipe.
-const KEY = 'brad-tracker-v1';
-const LADDER_KEY = 'brad-ladder-session';
-const LAST_KEY = 'brad-tracker-last';
-const SOUND_KEY = 'brad-tracker-sound';
+// Canonical keys. util.js migrates leftover brad-* values onto these on first
+// read and leaves the old keys in place. Writes go only to cal-*.
+const KEY = (F.KEYS && F.KEYS.data) || 'cal-tracker-v1';
+const LADDER_KEY = (F.KEYS && F.KEYS.ladder) || 'cal-ladder-session';
+const LAST_KEY = (F.KEYS && F.KEYS.last) || 'cal-tracker-last';
+const SOUND_KEY = (F.KEYS && F.KEYS.sound) || 'cal-tracker-sound';
 
 // Two short tones at the end of rest — WebAudio, so there is no file to load.
 function chime() {
