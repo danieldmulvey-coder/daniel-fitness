@@ -6,7 +6,7 @@
 
   function ladderMeta(it) {
     if (!it.ladder) return '';
-    var raw = F.store.getRaw('brad-ladder-session');
+    var raw = F.store.getRaw(F.KEYS.ladder);
     var n = parseInt(raw, 10);
     if (!(n >= 1)) return '';
     var peak = 4 + (((n - 1) % 16) + 1);
