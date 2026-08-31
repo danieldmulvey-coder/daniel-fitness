@@ -43,7 +43,7 @@
   var notes =
     '<section class="standing">' +
       '<div class="kicker-sm" style="color:var(--color-neutral-700)">Standing notes</div>' +
-      '<p><strong>No photographs.</strong> Every photo frame was removed on Daniel\'s instruction. The written steps carry the movement on their own; if a section here cannot be followed without a picture, that is a defect in Brad\'s writing and he wants it sent back, not illustrated.</p>' +
+      '<p><strong>No photographs.</strong> Every photo frame was removed on Daniel\'s instruction. The written steps carry the movement on their own; if a section here cannot be followed without a picture, that is a defect in Cal\'s writing and he wants it sent back, not illustrated.</p>' +
       '<p><strong>Equipment, standing:</strong> dumbbells, resistance bands with a door-height anchor, the plate-loaded kettlebell handle, the adjustable hand gripper, and the floor, wall and door frame. No bench, no box, no step, no pull-up bar. A section needing anything else is an error — send it back rather than substituting.</p>' +
       '<p><strong>Sources behind these cues:</strong> StrengthLog, BarBend, Gravitus; r/fitness and r/bodyweightfitness; ACE Fitness, PureGym, Muscle &amp; Strength.</p>' +
     '</section>';

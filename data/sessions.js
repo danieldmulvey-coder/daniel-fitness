@@ -61,9 +61,10 @@ const SESSIONS = [
   }
 ];
 
-// Optional sessions. Brad programmed all four on 2026-08-12: Cardio A on the clock,
-// Yoga on hold time, Cardio B and Daily Stretch deliberately fixed. Counted by
-// session, never by date. The running orders stay in Optional Sessions and the guides.
+// Optional sessions. Cal owns these (Fitness Architect). Brad originally
+// programmed all four on 2026-08-12: Cardio A on the clock, Yoga on hold time,
+// Cardio B and Daily Stretch deliberately fixed. Counted by session, never by
+// date. The running orders stay in Optional Sessions and the guides.
 SESSIONS.push(
   {
     id: 'yoga', tab: 'Yoga', kicker: 'Any day · optional', title: 'Daily Morning Yoga Flow', duration: '10 min',
@@ -97,7 +98,7 @@ SESSIONS.push(
   }
 );
 
-// Brad's programming for the optional four. n is the session about to be done,
+// Cal's programming for the optional four. n is the session about to be done,
 // counted by session and never by date.
 const OPT = {
   cardioA: n => {
@@ -136,10 +137,11 @@ const OPT = {
   })
 };
 
+// Frozen names — existing devices already have history under these keys.
+// util.js also reads cal-* aliases if present. Do not rename or wipe.
 const KEY = 'brad-tracker-v1';
 const LADDER_KEY = 'brad-ladder-session';
 const LAST_KEY = 'brad-tracker-last';
-
 const SOUND_KEY = 'brad-tracker-sound';
 
 // Two short tones at the end of rest — WebAudio, so there is no file to load.

@@ -90,7 +90,7 @@
         '</details>' +
         '<footer class="site-foot">' +
           '<div>The day decides what is on offer. It never decides the target — the ladder advances when you log a session, not when a day passes.</div>' +
-          '<div>Built from Brad\'s briefs and form guides. Where a guide and a sheet disagree, the guide is his words and wins.</div>' +
+          '<div>Built from Cal\'s briefs and form guides (Fitness Architect). Where a guide and a sheet disagree, the guide is his words and wins.</div>' +
         '</footer>' +
       '</div>';
 
