@@ -29,10 +29,10 @@
         '<a class="back" href="index.html" style="display:inline-flex;margin-bottom:14px">← Hub</a>' +
         '<div class="kicker" style="margin-bottom:9px">Movement guide</div>' +
         '<h1 class="display display-lg" style="margin-bottom:10px">How to do it</h1>' +
-        '<p class="lede">Brad\'s steps for the movements where form actually matters. Where a written walk-through exists and has been checked, there\'s a Read link.</p>' +
+        '<p class="lede">Cal\'s steps for the movements where form actually matters. Where a written walk-through exists and has been checked, there\'s a Read link.</p>' +
       '</header>' +
       '<div class="note" style="flex-direction:row;align-items:center;justify-content:space-between;gap:12px">' +
-        '<div style="font-size:13.5px;line-height:1.45;color:var(--color-accent-2-900)">Every movement prescribed in any session. Nothing outstanding from Brad.</div>' +
+        '<div style="font-size:13.5px;line-height:1.45;color:var(--color-accent-2-900)">Every movement prescribed in any session. Nothing outstanding from Cal.</div>' +
         '<div style="flex:none;font-family:var(--font-heading);font-size:19px;color:var(--color-accent-2-800)">' + total + '</div>' +
       '</div>' +
       F.movementGroups.map(function (gp) {
